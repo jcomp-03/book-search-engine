@@ -68,6 +68,7 @@ const SearchBooks = () => {
       const response = await saveBook(bookToSave, token);
 
       if (!response.ok) {
+        console.log("response object is*****:", response)
         throw new Error('something went wrong!');
       }
 
