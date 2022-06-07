@@ -1,5 +1,6 @@
 # Other
 requirements.txt    
+.env
 
 # Logs
 logs
