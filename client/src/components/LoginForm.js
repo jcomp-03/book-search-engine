@@ -31,7 +31,6 @@ const LoginForm = () => {
     }
 
     try {
-
       const { data } = await login({
         variables: { ...userFormData }
       });
