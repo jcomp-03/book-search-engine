@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 // import ApolloServer
 const { ApolloServer } = require("apollo-server-express");
 // import middleware function which verifies the provided JWT
-const { authMiddleware } = require('./utils/auth');
+const { authMiddleware } = require("./utils/auth");
 
 // we need to import our typeDefs and resolvers here.
 // the path may need changing...
@@ -30,7 +30,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));
 }
 
-app.use(routes);
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+// app.use(routes);
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
