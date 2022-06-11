@@ -19,8 +19,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
-  // eslint-disable-next-line
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -42,18 +41,8 @@ const SignupForm = () => {
       const { data } = await addUser({
         variables: { ...userFormData }
       });
-      console.log("*****data is*****", data);
 
       Auth.login(data.addUser.token);
-      // const response = await createUser(userFormData);
-
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
-
-      // const { token, user } = await response.json();
-      // console.log(user);
-      // Auth.login(token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
