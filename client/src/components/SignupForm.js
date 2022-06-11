@@ -19,6 +19,7 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  // eslint-disable-next-line
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
